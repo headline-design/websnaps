@@ -27,7 +27,7 @@ app.get('/snap', async function (req, res){
 
   await makeScreenShot(req.query.url,req.query.name)
 
-  let fullPath = path.join(__dirname, "snapshots/" + req.query.name + ".png")
+  let fullPath = path.join(__dirname, req.query.name + ".png")
 
     res.sendFile(fullPath, () => {
       fs.unlink(fullPath, () => {
@@ -58,7 +58,7 @@ async function makeScreenShot(url, name) {
 
   const page = await browser.newPage();
   await page.goto(url);
-  await page.screenshot({ path: "snapshots/" + name + ".png" });
+  await page.screenshot({ path: name + ".png" });
   await browser.close();
 }
 
