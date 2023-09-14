@@ -7,5 +7,9 @@
   },
   "scripts": {
     "start": "node test.mjs"
+  },
+  "engines": {
+    "node": ">=16"
   }
+
 }
